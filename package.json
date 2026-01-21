@@ -1,7 +1,7 @@
 {
   "name": "web-microscopi",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Layout/login.html",
  "scripts": {
        "start": "node server.js"
      },
