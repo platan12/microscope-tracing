@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microscopi</title>
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/Layout/microscopi.css">
+    <script src="/scripts/microscopi.js" defer></script>
+</head>
+
+<body>
+    <!-- MAIN -->
+    <main>
+        <div class="general_div">
+
+            <div class="header">
+                <div class="title_div">
+                    <h1>Title Web Microscopis</h1>
+                </div>
+                <div class="headerButton_div">
+                    <button class="search-btn" onclick="goToSearch()">Search</button>
+                    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+           
+            <div class="info_div">
+                <div class="img_div">
+                    <img src="/images/placeholder.png" alt="Microscopi Image" width="400" height="400">
+                </div>
+
+                <div class="text_div">
+                    <h2 id="model">Model: Cargando...</h2>
+                    <div id="serial">Numero de serie: Cargando...</div><br>
+                    <div id="status">Estat: Cargando...</div><br>
+                    <div id="installDate">Data de instal·lació: Cargando...</div><br>
+                </div>
+
+            </div>
+
+            <div class="button_div">
+                <button class="install-btn" id="installBtn" onclick="toggleInstall()">Instalar</button>
+            </div>
+
+            
+        </div>
+    </main>
+
+</body>
+
+</html>

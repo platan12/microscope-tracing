@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Search</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="/Layout/main.css">
+    <script src="/scripts/search.js" defer></script>
+</head>
+
+<body>
+    <!-- MAIN -->
+    <main>
+        <div class="general_div">
+            <div class="header">
+                 <div class="logout_div">
+                    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+           
+            
+
+            <div class="title_div">
+                <h1>Title Web Microscopis</h1>
+            </div>
+
+            <div class="text_div">
+                <h2>Introdueix aqui el numero de serie del teu microscopi</h2>
+            </div>
+
+            <div class="search_div">
+                <form id="search_form">
+                    <div class="input_div">
+                        <input type="text" id="search" name="search" placeholder="Numero de serie" required>
+                    </div>
+                    <div class="button_div">
+                        <button class="search-btn" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            
+        </div>
+    </main>
+
+</body>
+
+</html>

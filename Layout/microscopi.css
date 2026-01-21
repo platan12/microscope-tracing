@@ -1,0 +1,109 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #9cff9b;
+    padding: 0px;
+    margin: 0px; 
+}
+div.general_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+}
+div.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 5px;
+}
+div.title_div {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: #179F59;
+    font-size: 15px;
+    width: 60%;
+    margin-left: 20px;
+}
+div.headerButton_div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 20px;
+    width: 40%;
+}
+div.info_div {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+}
+div.img_div {
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+div.text_div {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #179F59;
+    font-size: 20px;
+    width: 70%;
+    margin-left: 20px;
+}
+div.search_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    width: 300px;
+}
+form.search_form {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+}
+input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+div.button_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+button {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    padding: 10px;
+    background-color: #179F59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size:20px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #137a43;
+}

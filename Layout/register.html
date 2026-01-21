@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registre</title>
+    
+     <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="/Layout/login.css">
+    <script src="/scripts/register.js" defer></script>
+</head>
+
+<body>
+    <!-- MAIN -->
+    <main>
+        <div class="general_div">
+
+            <div class="title_div">
+                <h1>Title Web Microscopis</h1>
+            </div>
+
+            <div class="login_div">
+                <h2 style="text-align: center; color: #179F59; margin-bottom: 20px;">Crear Compte</h2>
+                <form id="register_form">
+                    <div class="input_div">
+                        <label for="admin_code">Codi d'Administrador:</label>
+                        <input type="text" id="admin_code" name="admin_code" placeholder="codi d'administrador" required>
+                    </div>
+                    <div class="input_div">
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" name="mail" placeholder="mail" required>
+                    </div>
+                    <div class="input_div">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="password" required>
+                    </div>
+                    <div class="input_div">
+                        <label for="confirm_password">Confirmar Password:</label>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirmar password" required>
+                    </div>
+                    <div class="button_div">
+                        <button class="login-btn" type="submit">Registrar</button>
+                    </div>
+                </form>
+                <div style="text-align: center; margin-top: 20px;">
+                    <p>Ja tens compte? <a href="/Layout/login.html" style="color: #179F59; text-decoration: none;">Inicia sessió</a></p>
+                </div>
+            </div>
+
+            
+        </div>
+    </main>
+
+
+</body>
+
+</html>

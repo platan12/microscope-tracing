@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "mail": "admin@microscopis.com",
+      "password": "admin123"
+    },
+    {
+      "mail": "user@example.com",
+      "password": "password123"
+    },
+    {
+      "mail": "drybones@microscopi.com",
+      "password": "drybones123"
+    },
+    {
+      "mail": "fireman@microscopi.com",
+      "password": "fireman99"
+    }
+  ]
+}

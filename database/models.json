@@ -1,0 +1,19 @@
+{
+  "models": [
+    {
+      "name": "X1000",
+      "image": "/images/models/x1000.jpg",
+      "description": "Model bàsic per a laboratoris"
+    },
+    {
+      "name": "Y2000",
+      "image": "/images/models/y2000.jpg",
+      "description": "Model avançat amb alta resolució"
+    },
+    {
+      "name": "Z3000",
+      "image": "/images/models/z3000.jpg",
+      "description": "Model professional amb funcions avançades"
+    }
+  ]
+}
