@@ -15,6 +15,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('.')); // Serveix tots els fitxers estàtics
 
+app.get('/', (req, res) => {
+    res.redirect('/Layout/login.html');
+});
+
 // Ruta per login
 app.post('/api/login', (req, res) => {
     const { mail, password } = req.body;
