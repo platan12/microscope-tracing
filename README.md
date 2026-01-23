@@ -1,2 +1,2 @@
 # Microscope-Tracing
-Small web for tracking the installation of Microscopes for Sensofar
+Small web for tracing the installation of Microscopes
