@@ -1,6 +1,11 @@
 // Codi d'administrador hardcoded
 const ADMIN_CODE = "ADMIN2025";
 
+// Detectar automàticament la URL de l'API
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000' 
+    : window.location.origin;
+
 async function handleRegister(event) {
     if (event) {
         event.preventDefault();
@@ -46,8 +51,10 @@ async function handleRegister(event) {
     }
     
     try {
+        console.log('📡 Enviant petició a:', `${API_URL}/api/register`);
+        
         // Crida a l'API per registrar
-        const response = await fetch('http://localhost:3000/api/register', {
+        const response = await fetch(`${API_URL}/api/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +66,11 @@ async function handleRegister(event) {
             })
         });
         
+        console.log('📥 Resposta rebuda:', response.status);
+        
         const data = await response.json();
+        
+        console.log('📄 Dades:', data);
         
         if (data.success) {
             alert('Usuari registrat correctament!');
@@ -69,8 +80,8 @@ async function handleRegister(event) {
         }
         
     } catch (error) {
-        console.error('Error al registrar:', error);
-        alert('Error de connexió amb el servidor');
+        console.error('❌ Error al registrar:', error);
+        alert('Error de connexió amb el servidor: ' + error.message);
     }
 }
 
@@ -83,4 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
             handleRegister();
         });
     }
+    
+    console.log('🔧 API URL configurada:', API_URL);
 });
