@@ -5,6 +5,11 @@ const SERIAL_NUMBER = urlParams.get('serial');
 let currentMicroscope = null;
 let modelsData = null;
 
+// URL de l'API (canvia segons on tinguis el servidor)
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000' 
+    : 'https://microscope-tracing.onrender.com';
+
 // Carregar dades del microscopi quan la pàgina carregui
 document.addEventListener('DOMContentLoaded', async function() {
     if (!SERIAL_NUMBER) {
@@ -97,30 +102,87 @@ function updateModelImage(modelName) {
     }
 }
 
-function toggleInstall() {
+async function toggleInstall() {
     if (!currentMicroscope) {
         alert('No hi ha microscopi carregat');
         return;
     }
     
+    const installBtn = document.getElementById('installBtn');
+    
+    // Deshabilitar el botó mentre es processa
+    installBtn.disabled = true;
+    installBtn.style.opacity = '0.6';
+    installBtn.style.cursor = 'wait';
+    
     if (currentMicroscope.installed) {
         // Desinstal·lar
         if (confirm('Estàs segur que vols desinstal·lar aquest microscopi?')) {
-            currentMicroscope.installed = false;
-            currentMicroscope.installDate = null;
-            updateDisplay(currentMicroscope);
-            alert('Microscopi desinstal·lat correctament');
-            // Aquí hauríes de fer una crida al backend per guardar els canvis
+            try {
+                const response = await fetch(`${API_URL}/api/microscope/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        serial: currentMicroscope.serial,
+                        installed: false,
+                        installDate: null
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentMicroscope.installed = false;
+                    currentMicroscope.installDate = null;
+                    updateDisplay(currentMicroscope);
+                    alert('Microscopi desinstal·lat correctament');
+                } else {
+                    alert('Error al desinstal·lar: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de connexió amb el servidor');
+            }
         }
     } else {
         // Instal·lar
-        const today = new Date().toISOString().split('T')[0];
-        currentMicroscope.installed = true;
-        currentMicroscope.installDate = today;
-        updateDisplay(currentMicroscope);
-        alert('Microscopi instal·lat correctament');
-        // Aquí hauríes de fer una crida al backend per guardar els canvis
+        try {
+            const today = new Date().toISOString().split('T')[0];
+            
+            const response = await fetch(`${API_URL}/api/microscope/update`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    serial: currentMicroscope.serial,
+                    installed: true,
+                    installDate: today
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                currentMicroscope.installed = true;
+                currentMicroscope.installDate = today;
+                updateDisplay(currentMicroscope);
+                alert('Microscopi instal·lat correctament');
+            } else {
+                alert('Error al instal·lar: ' + data.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error de connexió amb el servidor');
+        }
     }
+    
+    // Rehabilitar el botó
+    installBtn.disabled = false;
+    installBtn.style.opacity = '1';
+    installBtn.style.cursor = 'pointer';
 }
 
 function goToSearch() {

@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Codi d'administrador hardcoded
 const ADMIN_CODE = "ADMIN2025";
@@ -15,6 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('.')); // Serveix tots els fitxers estàtics
 
+// REDIRECCIÓ A LOGIN QUAN ENTREN A L'ARREL
 app.get('/', (req, res) => {
     res.redirect('/Layout/login.html');
 });
@@ -72,25 +73,40 @@ app.post('/api/register', (req, res) => {
 app.post('/api/microscope/update', (req, res) => {
     const { serial, installed, installDate } = req.body;
     
+    console.log('📝 Petició rebuda per actualitzar microscopi:', { serial, installed, installDate });
+    
     try {
         const microscopePath = path.join(__dirname, 'database', 'microscopis.json');
-        const data = JSON.parse(fs.readFileSync(microscopePath, 'utf8'));
         
-        // Buscar i actualitzar el microscopi
+        // Llegir el fitxer actual
+        const fileContent = fs.readFileSync(microscopePath, 'utf8');
+        const data = JSON.parse(fileContent);
+        
+        console.log('📂 Dades actuals:', data);
+        
+        // Buscar el microscopi
         const microscope = data.microscopis.find(m => m.serial === serial);
         
         if (microscope) {
+            // Actualitzar les dades
             microscope.installed = installed;
             microscope.installDate = installDate;
             
-            fs.writeFileSync(microscopePath, JSON.stringify(data, null, 2));
-            res.json({ success: true, message: 'Microscopi actualitzat' });
+            console.log('✅ Microscopi trobat i actualitzat:', microscope);
+            
+            // Guardar els canvis
+            fs.writeFileSync(microscopePath, JSON.stringify(data, null, 2), 'utf8');
+            
+            console.log('💾 Fitxer guardat correctament');
+            
+            res.json({ success: true, message: 'Microscopi actualitzat correctament' });
         } else {
+            console.log('❌ Microscopi no trobat amb serial:', serial);
             res.json({ success: false, message: 'Microscopi no trobat' });
         }
     } catch (error) {
-        console.error('Error en actualització:', error);
-        res.status(500).json({ success: false, message: 'Error del servidor' });
+        console.error('💥 Error en actualització:', error);
+        res.status(500).json({ success: false, message: 'Error del servidor: ' + error.message });
     }
 });
 
