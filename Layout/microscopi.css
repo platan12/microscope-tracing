@@ -44,12 +44,18 @@ div.info_div {
     flex-direction: row;
     text-align: center;
     width: 100%;
+    padding: 0 20px;
 }
 div.img_div {
     width: 30%;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
+}
+div.img_div img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
 }
 div.text_div {
     text-align: left;
@@ -95,15 +101,147 @@ div.button_div {
 button {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 20%;
     padding: 10px;
     background-color: #179F59;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size:20px;
+    font-size: 20px;
     cursor: pointer;
 }
 button:hover {
     background-color: #137a43;
+}
+
+button.uninstall {
+    background-color: #d32f2f;
+}
+
+button.uninstall:hover {
+    background-color: #b71c1c;
+}
+
+/* MEDIA QUERIES PER A MÒBILS */
+
+/* Tablets i pantalles mitjanes (fins a 768px) */
+@media (max-width: 768px) {
+    div.header {
+        height: auto;
+        padding: 15px 10px;
+    }
+    
+    div.title_div {
+        font-size: 12px;
+        width: 50%;
+        margin-left: 10px;
+    }
+    
+    div.title_div h1 {
+        font-size: 16px;
+    }
+    
+    div.headerButton_div {
+        width: 50%;
+        margin-right: 10px;
+        gap: 10px;
+    }
+    
+    div.headerButton_div button {
+        width: 45%;
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    div.info_div {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+    }
+    
+    div.img_div {
+        width: 80%;
+        max-width: 350px;
+        margin-bottom: 30px;
+    }
+    
+    div.text_div {
+        width: 90%;
+        margin-left: 0;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    div.button_div button {
+        width: 50%;
+        font-size: 18px;
+    }
+}
+
+/* Mòbils petits (fins a 480px) */
+@media (max-width: 480px) {
+    div.header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    div.title_div {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        font-size: 10px;
+    }
+    
+    div.title_div h1 {
+        font-size: 14px;
+    }
+    
+    div.headerButton_div {
+        width: 100%;
+        margin-right: 0;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    div.headerButton_div button {
+        width: 40%;
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    div.info_div {
+        padding: 0 10px;
+    }
+    
+    div.img_div {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    div.text_div {
+        width: 95%;
+        font-size: 16px;
+    }
+    
+    div.text_div h2 {
+        font-size: 20px;
+    }
+    
+    div.text_div div {
+        font-size: 14px;
+    }
+    
+    div.button_div {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    div.button_div button {
+        width: 70%;
+        font-size: 16px;
+        padding: 12px;
+    }
 }
