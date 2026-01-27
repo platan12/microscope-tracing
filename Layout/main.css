@@ -17,7 +17,7 @@ div.header {
 div.logout_div {
     display: flex;
     justify-content: flex-end;
-    width: 8%;
+    width: 100px;
     padding: 20px;
 }
 div.title_div {
@@ -32,7 +32,7 @@ div.text_div {
     margin-bottom: 20px;
     color: #179F59;
     font-size: 20px;
-    width: 500px;
+    width: 70%;
 }
 div.search_div {
     display: flex;
