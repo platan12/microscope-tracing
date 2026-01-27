@@ -1,25 +1,25 @@
 {
   "microscopis": [
     {
-        "serial": "MIC12345",
-        "model": "X1000",
-        "installed": true,
-        "installDate": "2023-01-15",
-        "user": "admin@microscopis.com"
+      "serial": "MIC12345",
+      "model": "X1000",
+      "installed": true,
+      "installDate": "2026-01-27",
+      "user": "admin@microscopis.com"
     },
     {
-        "serial": "MIC67890",
-        "model": "Y2000",
-        "installed": false,
-        "installDate": null,
-        "user": "admin@microscopis.com"
+      "serial": "MIC67890",
+      "model": "Y2000",
+      "installed": false,
+      "installDate": null,
+      "user": "admin@microscopis.com"
     },
     {
-        "serial": "MIC54321",
-        "model": "Z3000",
-        "installed": true,
-        "installDate": "2022-11-30",
-        "user": "user@example.com"
+      "serial": "MIC54321",
+      "model": "Z3000",
+      "installed": true,
+      "installDate": "2022-11-30",
+      "user": "user@example.com"
     }
   ]
 }
